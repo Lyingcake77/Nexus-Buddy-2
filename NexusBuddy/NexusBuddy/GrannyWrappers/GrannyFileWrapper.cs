@@ -85,8 +85,8 @@ namespace NexusBuddy.GrannyWrappers
 
         public unsafe void setExporterInfo(string name, int majorNum, int minorNum, int customization, int build)
         {
-            setExporterName(name);
-            setExporterNumbers(majorNum, minorNum, customization, build);
+            //setExporterName(name);
+            //setExporterNumbers(majorNum, minorNum, customization, build);
         }
         
         public unsafe string getExporterName() {

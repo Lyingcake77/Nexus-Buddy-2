@@ -176,7 +176,7 @@ namespace NexusBuddy
 			try
 			{
 				RegistryKey registryKey = Registry.CurrentUser.OpenSubKey("Software\\Firaxis\\Nexus\\Civ5Settings");
-				this.Civ5Location = registryKey.GetValue("GameBuild").ToString();
+                this.Civ5Location = "";//registryKey.GetValue("GameBuild").ToString();
 				this.Civ5Location = this.Civ5Location.Substring(0, this.Civ5Location.LastIndexOf("\\")) + "\\";
 			}
 			catch (Exception)
