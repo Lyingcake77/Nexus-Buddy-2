@@ -6,45 +6,145 @@
         xmlns:local="clr-namespace:NexusBuddyHades"
         mc:Ignorable="d"
         Title="Nexus Hades buddy 2" Height="1000" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-
+ 
+    <Grid Height="400" Width="600">
         <StackPanel Grid.Row="1" Margin="5,0,0,0">
-            <Label Content="Quick Tools"/>
-            <Button x:Name="ExtractLz4" Margin="0,5,0,0" Click="ExtractLz4_Click">Extract from lz4</Button>
-            <Button x:Name="CompressLz4" Margin="0,5,0,0" Click="compressLz4_Click">Compress to lz4</Button>
-            <Button x:Name="OpenGr2Viewer" Margin="0,5,0,0" Click="compressLz4_Click">open gr2 viewer</Button>
-            <Label Content="GR2 Mesh tools -model"/>
-            <Button x:Name="OpenGr2" Margin="0,5,0,0" Click="x_Click">Open Gr2</Button>
-            <Button x:Name="SaveGr2" Margin="0,5,0,0" Click="x_Click">save Gr2</Button>
-            <Button x:Name="SaveAsGr2" Margin="0,5,0,0" Click="x_Click">save as Gr2</Button>
-            <Button x:Name="ExportToBr2" Margin="0,5,0,0" Click="x_Click">Export to Br2 (Mesh)</Button>
-            <Button x:Name="ImportBr2" Margin="0,5,0,0" Click="x_Click">import Br2 (Mesh)</Button>
-            <Button x:Name="OverwriteAll" Margin="0,5,0,0" Click="x_Click">Overwrite all</Button>
-            <Button x:Name="OverwriteModel" Margin="0,5,0,0" Click="x_Click">Overwrite model</Button>
-            <Button x:Name="InsertModel" Margin="0,5,0,0" Click="x_Click">Insert model</Button>
-            <Button x:Name="InsertMesh" Margin="0,5,0,0" Click="x_Click">Insert mesh</Button>
-            <Label Content="GR2 Mesh tools -materials"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="OpenGr2" Margin="0,5,0,0" Click="x_Click">Open Gr2</Button>
+                <Button x:Name="SaveGr2" Margin="0,5,0,0" Click="x_Click">save Gr2</Button>
+                <Button x:Name="SaveAsGr2" Margin="0,5,0,0" Click="x_Click">save as Gr2</Button>
+                <Label Content="Source: Model.gr2"/>
+            </StackPanel>
+           
+            <TabControl>
 
-            <Button x:Name="EditMaterials" Margin="0,5,0,0" Click="x_Click">edit materials</Button>
-            <Button x:Name="AdMaterials" Margin="0,5,0,0" Click="x_Click">add material</Button>
+                <TabItem Header="Quick Tools" Height="30">
+                    <TabItem.Content>
+                        <TabPanel >
+                            <StackPanel Grid.Row="1" Margin="5,0,0,0">
+                                <Button x:Name="ExtractLz4" Margin="0,5,50,0" Click="ExtractLz4_Click">Extract from lz4</Button>
+                                <Button x:Name="CompressLz4" Margin="0,5,50,0" Click="compressLz4_Click">Compress to lz4</Button>
+                                <Button x:Name="OpenGr2Viewer" Margin="0,5,50,0" Click="compressLz4_Click">open gr2 viewer</Button>
+                            </StackPanel>
+                        </TabPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="Gr2 Details">
+                    <TabItem.Content>
+                        <TabControl TabStripPlacement="Left" >
+                            <TabItem Header="Models" Height="30">
+                                <TabItem.Content>
+                                    <ListView  Name="inbox" BorderThickness="2">
+                                        <ListView.View >
+                                            <GridView>
+                                                <GridViewColumn Header="From" Width="70" DisplayMemberBinding="{Binding from}" />
+                                                <GridViewColumn Header="Subject" Width="120" DisplayMemberBinding="{Binding subject}" />
+                                                <GridViewColumn Header="Content" Width="150" DisplayMemberBinding="{Binding content}" />
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </TabItem.Content>
+                            </TabItem>
+                            <TabItem Header="Meshes" Height="30">
+                                <TabItem.Content>
+                                    <ListView  Name="sentitems" BorderThickness="2">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="From" Width="70" DisplayMemberBinding="{Binding from}" />
+                                                <GridViewColumn Header="Subject" Width="120" DisplayMemberBinding="{Binding subject}" />
+                                                <GridViewColumn Header="Content" Width="150" DisplayMemberBinding="{Binding content}" />
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </TabItem.Content>
+                            </TabItem>
+                            <TabItem Header="materials" Height="30"
+ >
+                                <TabItem.Content>
+                                    <ListView  Name="deleteditems" BorderThickness="2">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="From" Width="70" DisplayMemberBinding="{Binding from}" />
+                                                <GridViewColumn Header="Subject" Width="120" DisplayMemberBinding="{Binding subject}" />
+                                                <GridViewColumn Header="Content" Width="150" DisplayMemberBinding="{Binding content}" />
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+                                </TabItem.Content>
+                            </TabItem>
+                            <TabItem Header="Animations" Height="30"
+>
+                                <TabItem.Content>
+                                    <Label Content="asd"/>
+                                </TabItem.Content>
+                            </TabItem>
+                            <TabItem Header="File Info" Height="30">
+                                <TabItem.Content>
+                                    <Label Content="asd"/>
+                                </TabItem.Content>
+                            </TabItem>
+                        </TabControl>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="Gr2 Mesh tools">
+                    <TabItem.Content>
+                        <TabPanel >
+                            <StackPanel Grid.Row="1" Margin="5,0,0,0">
+                                <Button x:Name="ExportToBr2" Margin="0,5,0,0" Click="x_Click">Export to Br2 (Mesh)</Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="ImportBr2" Margin="0,5,0,0" Click="x_Click">import Br2 (Mesh)</Button>
+                                    <Label Content="active BR2: model.br2"/>
+                                </StackPanel>
+                                
+                                <Button x:Name="OverwriteAll" Margin="0,5,0,0" Click="x_Click">Overwrite all</Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="OverwriteModel" Margin="0,5,0,0" Click="x_Click">Overwrite model</Button>
 
-            <Label Content="GR2 mesh tools -Animation"/>
-            <Button x:Name="ExportToNb2" Margin="0,5,0,0" Click="x_Click">Export to NB2 (Animation)</Button>
-            <Button x:Name="OpenFbx" Margin="0,5,0,0" Click="x_Click">open Fbx</Button>
-            <Button x:Name="FbxToAnimation" Margin="0,5,0,0" Click="x_Click">convert fbx to animation</Button>
-            <Button x:Name="FbxToSkeleton" Margin="0,5,0,0" Click="x_Click">convert fbx to skeleton</Button>
-            <Button x:Name="OverwriteAnimation" Margin="0,5,0,0" Click="x_Click">overwrite animation</Button>
-            <Button x:Name="InsertAnimation" Margin="0,5,0,0" Click="x_Click">insert animation</Button>
+                                    <ComboBox Name="OverwriteModelSelect" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
+                                    </ComboBox>
+                                </StackPanel>
+
+                                <Button x:Name="InsertModel" Margin="0,5,0,0" Click="x_Click">Insert model</Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="OverriteMesh" Margin="0,5,0,0" Click="x_Click">Overwrite mesh</Button>
+                                    <ComboBox Name="OverriteMeshSelect" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button ToolTip="ClickSpecify under which model to appen mesh"  x:Name="InsertMesh" Margin="0,5,0,0" Click="x_Click">Insert mesh</Button>
+                                    <ComboBox Name="InserMeshSelect" Width="200" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0">
+                                    </ComboBox>
+                                </StackPanel>
+                            </StackPanel>
+                        </TabPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="Gr2 Material tools">
+                    <TabItem.Content>
+                        <TabPanel >
+                            <StackPanel Grid.Row="1" Margin="5,0,0,0">
+                                <Button x:Name="EditMaterials" Margin="0,5,0,0" Click="x_Click">edit materials</Button>
+                                <Button x:Name="AdMaterials" Margin="0,5,0,0" Click="x_Click">add material</Button>
+                            </StackPanel>
+                        </TabPanel>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem Header="Gr2 Animation tools">
+                    <TabItem.Content>
+                        <TabPanel >
+                            <StackPanel Grid.Row="1" Margin="5,0,0,0">
+                                <Button x:Name="ExportToNb2" Margin="0,5,0,0" Click="x_Click">Export to NB2 (Animation)</Button>
+                                <Button x:Name="OpenFbx" Margin="0,5,0,0" Click="x_Click">open Fbx</Button>
+                                <Button x:Name="FbxToAnimation" Margin="0,5,0,0" Click="x_Click">convert fbx to animation</Button>
+                                <Button x:Name="FbxToSkeleton" Margin="0,5,0,0" Click="x_Click">convert fbx to skeleton</Button>
+                                <Button x:Name="OverwriteAnimation" Margin="0,5,0,0" Click="x_Click">overwrite animation</Button>
+                                <Button x:Name="InsertAnimation" Margin="0,5,0,0" Click="x_Click">insert animation</Button>
+                            </StackPanel>
+                        </TabPanel>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
         </StackPanel>
+        
     </Grid>
 </Window>

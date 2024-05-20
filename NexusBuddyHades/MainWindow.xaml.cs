@@ -1,4 +1,5 @@
 ﻿using NexusBuddyHades.Tools;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -73,6 +74,11 @@ namespace NexusBuddyHades
                 // Open document 
                 //textBox1.Text = dlg.FileName;
             }
+        }
+
+        private void x_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
