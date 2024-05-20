@@ -1,0 +1,50 @@
+﻿<Window x:Class="NexusBuddyHades.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NexusBuddyHades"
+        mc:Ignorable="d"
+        Title="Nexus Hades buddy 2" Height="1000" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Row="1" Margin="5,0,0,0">
+            <Label Content="Quick Tools"/>
+            <Button x:Name="ExtractLz4" Margin="0,5,0,0" Click="ExtractLz4_Click">Extract from lz4</Button>
+            <Button x:Name="CompressLz4" Margin="0,5,0,0" Click="compressLz4_Click">Compress to lz4</Button>
+            <Button x:Name="OpenGr2Viewer" Margin="0,5,0,0" Click="compressLz4_Click">open gr2 viewer</Button>
+            <Label Content="GR2 Mesh tools -model"/>
+            <Button x:Name="OpenGr2" Margin="0,5,0,0" Click="x_Click">Open Gr2</Button>
+            <Button x:Name="SaveGr2" Margin="0,5,0,0" Click="x_Click">save Gr2</Button>
+            <Button x:Name="SaveAsGr2" Margin="0,5,0,0" Click="x_Click">save as Gr2</Button>
+            <Button x:Name="ExportToBr2" Margin="0,5,0,0" Click="x_Click">Export to Br2 (Mesh)</Button>
+            <Button x:Name="ImportBr2" Margin="0,5,0,0" Click="x_Click">import Br2 (Mesh)</Button>
+            <Button x:Name="OverwriteAll" Margin="0,5,0,0" Click="x_Click">Overwrite all</Button>
+            <Button x:Name="OverwriteModel" Margin="0,5,0,0" Click="x_Click">Overwrite model</Button>
+            <Button x:Name="InsertModel" Margin="0,5,0,0" Click="x_Click">Insert model</Button>
+            <Button x:Name="InsertMesh" Margin="0,5,0,0" Click="x_Click">Insert mesh</Button>
+            <Label Content="GR2 Mesh tools -materials"/>
+
+            <Button x:Name="EditMaterials" Margin="0,5,0,0" Click="x_Click">edit materials</Button>
+            <Button x:Name="AdMaterials" Margin="0,5,0,0" Click="x_Click">add material</Button>
+
+            <Label Content="GR2 mesh tools -Animation"/>
+            <Button x:Name="ExportToNb2" Margin="0,5,0,0" Click="x_Click">Export to NB2 (Animation)</Button>
+            <Button x:Name="OpenFbx" Margin="0,5,0,0" Click="x_Click">open Fbx</Button>
+            <Button x:Name="FbxToAnimation" Margin="0,5,0,0" Click="x_Click">convert fbx to animation</Button>
+            <Button x:Name="FbxToSkeleton" Margin="0,5,0,0" Click="x_Click">convert fbx to skeleton</Button>
+            <Button x:Name="OverwriteAnimation" Margin="0,5,0,0" Click="x_Click">overwrite animation</Button>
+            <Button x:Name="InsertAnimation" Margin="0,5,0,0" Click="x_Click">insert animation</Button>
+        </StackPanel>
+    </Grid>
+</Window>
