@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NexusBuddyHades"
         mc:Ignorable="d"
-        Title="Nexus Hades buddy 2" Height="1000" Width="800">
+        Title="Nexus Hades buddy 2" Height="410" Width="610">
  
     <Grid Height="400" Width="600">
         <StackPanel Grid.Row="1" Margin="5,0,0,0">
